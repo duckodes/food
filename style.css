@@ -1,0 +1,116 @@
+:root{
+  --bg:#ffffff;
+  --text:#2b2b2b;
+  --muted:#6b6b6b;
+  --accent:#ff6b35; /* 橙紅 */
+  --accent-2:#2aa876; /* 綠 */
+  --card:#ffffff;
+  --glass: rgba(255,255,255,0.7);
+  --radius:14px;
+  --shadow: 0 8px 24px rgba(43,43,43,0.08);
+  --container:1200px;
+  --transition:300ms cubic-bezier(.2,.9,.3,1);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+
+/* container */
+.container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+/* NAV */
+.nav-wrap{position:sticky;top:0;z-index:60;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));backdrop-filter: blur(6px);box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.nav{display:flex;align-items:center;gap:20px;padding:14px 0}
+.brand{font-weight:700;font-size:1.25rem;color:var(--text)}
+.brand .accent{color:var(--accent);margin-left:6px}
+.nav-links{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;color:var(--muted);font-weight:600;transition:color var(--transition)}
+.nav-links a:hover{color:var(--accent)}
+.nav-toggle{display:none;background:none;border:none;font-size:1.2rem}
+
+/* Buttons */
+.btn{border:0;padding:10px 16px;border-radius:999px;cursor:pointer;transition:transform var(--transition),box-shadow var(--transition)}
+.btn-primary{background:linear-gradient(90deg,var(--accent),#ff8a5b);color:#fff;box-shadow:0 6px 18px rgba(255,107,53,0.18)}
+.btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--bg);padding:10px 18px}
+.btn-sm{padding:6px 10px;font-size:0.9rem}
+
+/* HERO */
+.hero{height:78vh;display:flex;align-items:center;position:relative;overflow:hidden;border-bottom-left-radius:30px;border-bottom-right-radius:30px}
+.hero-carousel{width:100%;height:100%;position:relative}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(1.02);transition:opacity 800ms ease,transform 800ms ease}
+.slide.active{opacity:1;transform:scale(1)}
+.hero-inner{background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.15));padding:40px;border-radius:12px;color:#fff;text-align:center;max-width:900px}
+.hero-inner h1{font-size:2.6rem;margin:0 0 10px;letter-spacing:0.6px}
+.hero-inner p{margin:0 0 18px;color:rgba(255,255,255,0.9)}
+
+/* carousel controls */
+.carousel-controls{position:absolute;right:28px;bottom:28px;display:flex;gap:8px}
+.carousel-controls button{background:rgba(255,255,255,0.9);border-radius:8px;padding:8px 12px;border:none;cursor:pointer;box-shadow:var(--shadow)}
+
+/* SECTION */
+.section{padding:64px 0}
+.section-head{text-align:center;margin-bottom:28px}
+.section-head h2{color:var(--text);margin:0;font-size:2rem}
+.lead{color:var(--muted);margin-top:8px}
+
+/* filters */
+.filters{display:flex;gap:10px;justify-content:center;margin-bottom:24px}
+.chip{background:#fff;border:1px solid rgba(0,0,0,0.06);padding:8px 12px;border-radius:999px;cursor:pointer}
+.chip.active{background:linear-gradient(90deg,var(--accent),#ff8a5b);color:#fff;border:none;box-shadow:0 8px 20px rgba(255,107,53,0.12)}
+
+/* menu grid */
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform var(--transition),box-shadow var(--transition)}
+.card-media{height:180px;overflow:hidden}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--transition)}
+.card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(43,43,43,0.12)}
+.card:hover .card-media img{transform:scale(1.06)}
+.card-body{padding:16px;display:flex;flex-direction:column;gap:8px}
+.card-body h3{margin:0;font-size:1.05rem}
+.muted{color:var(--muted);font-size:0.95rem}
+.card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.price{font-weight:700;color:var(--accent-2)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.about-media img{width:100%;border-radius:12px;object-fit:cover}
+.features{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:8px}
+.features li{background:linear-gradient(90deg,#fff,#fff);padding:8px 12px;border-radius:8px;border:1px solid rgba(0,0,0,0.04)}
+
+/* contact form */
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+.form-grid input,.form-grid select,.form-grid textarea{padding:12px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);width:100;font-size:0.95rem}
+.form-grid textarea{grid-column:1/3;min-height:120px}
+.form-grid button{grid-column:1/3;justify-self:center;padding:12px 28px}
+
+/* footer */
+.footer{padding:28px 0;background:#fafafa;color:var(--muted);font-size:0.95rem}
+.footer-grid{display:flex;justify-content:space-between;align-items:center}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
+.modal[aria-hidden="false"]{display:flex}
+.modal-dialog{background:#fff;border-radius:12px;max-width:900px;width:100;display:flex;gap:20px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.35)}
+.modal-dialog img{width:50%;object-fit:cover}
+.modal-content{padding:20px;display:flex;flex-direction:column;gap:12px}
+.modal-close{position:absolute;right:24px;top:24px;background:none;border:none;font-size:1.2rem;cursor:pointer}
+
+/* responsive */
+@media (max-width:900px){
+  .about-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .hero-inner h1{font-size:1.6rem}
+  .modal-dialog{flex-direction:column}
+  .modal-dialog img{width:100%;height:220px}
+}
