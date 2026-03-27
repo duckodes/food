@@ -48,7 +48,7 @@ const $$ = sel => Array.from(document.querySelectorAll(sel));
 })();
 
 /* Filters */
-(function filters() {
+function filters() {
     const chips = $$('.chip');
     const cards = $$('.card');
     chips.forEach(chip => {
@@ -61,7 +61,7 @@ const $$ = sel => Array.from(document.querySelectorAll(sel));
             });
         });
     });
-})();
+}
 
 /* Dish modal */
 (function modal() {
@@ -119,3 +119,6 @@ $('#reserveForm').addEventListener('submit', function (e) {
         container.style.height = container.style.height === 'auto' ? '60px' : 'auto';
     });
 })();
+
+
+export { $, $$, filters };
