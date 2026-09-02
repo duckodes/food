@@ -4,7 +4,7 @@ import fetcher from "./fetcher.js";
 import { $, $$, filters } from "../js/script.js";
 
 const main = (async () => {
-    const firebaseConfig = await fetcher.load('../res/config/firebaseConfig.json');
+    const firebaseConfig = await fetcher.load('./res/config/firebaseConfig.json');
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
 
